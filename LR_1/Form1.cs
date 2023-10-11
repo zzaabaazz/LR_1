@@ -35,7 +35,7 @@ namespace LR_1
             }
             else
             {
-                textBox4.Text = "РќРµ РІС‹Р±СЂР°РЅ СЂРµР¶РёРј!";
+                textBox4.Text = "Не выбран режим!";
             }
         }
         private void button2_Click(object sender, EventArgs e)
