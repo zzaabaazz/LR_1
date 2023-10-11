@@ -9,38 +9,18 @@ namespace LR_1
         {
             InitializeComponent();
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            double h = Convert.ToSingle(textBox1.Text);
-            double R = Convert.ToSingle(textBox3.Text);
-            double L = Convert.ToSingle(textBox2.Text);
-            const double PI = 3.1415;
+            string S ="ФИО:"+ textBox3.Text+" "+ textBox1.Text + " " +textBox2.Text+ "\nУвлечения: ";
+
+            var checkboxList_U = new List<CheckBox>
+            {checkBox1,checkBox2,checkBox3,checkBox4,checkBox5,checkBox6};
+            var messages = checkboxList_U.Where(x => x.Checked).Select(x => x.Text);
+            string U = string.Join(", ", messages);
 
 
-            double V = 0.3334 * PI * R * R * h;
-            double S = PI * R * (L + R);
-            if (checkBox1.Checked && checkBox2.Checked)
-            {
-                textBox4.Text = V.ToString() + ";" + S.ToString();
-            }
-            else if (checkBox1.Checked)
-            {
-                textBox4.Text = V.ToString();
-
-
-            }
-            else if (checkBox2.Checked)
-            {
-                textBox4.Text = S.ToString();
-            }
-            else
-            {
-                textBox4.Text = "Не выбран режим!";
-            }
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            MessageBox.Show(S + U, "A message", MessageBoxButtons.OKCancel);
         }
     }
 }
